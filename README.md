@@ -1,18 +1,15 @@
-# LSM6 library for Arduino
-[www.pololu.com](https://www.pololu.com/)
+# LSM6 library for Python
+Forked from [www.pololu.com](https://www.pololu.com/)
+Personal project. Tested only with Nvidia Jetson Xavier NX.
 
 ## Summary
 
-This is a library for the Arduino IDE that helps interface with ST's LSM6DS33 and LSM6DSO 3D accelerometer and gyro ICs on Pololu boards. It makes it simple to configure the LSM6DS33 and read the raw accelerometer and gyro data from these boards:
+This is a library for Python that helps interface with ST's LSM6DS33 3D accelerometer and gyro ICs on Pololu boards. It makes it simple to configure the LSM6DS33 and read the raw accelerometer and gyro data from these boards:
 
- * [LSM6DSO 3D accelerometer and gyro carrier](https://www.pololu.com/product/2798)
+ <!-- * [LSM6DSO 3D accelerometer and gyro carrier](https://www.pololu.com/product/2798) -->
  * [LSM6DS33 3D accelerometer and gyro carrier](https://www.pololu.com/product/2736)
  * [MinIMU-9 v5 (LSM6DS33 and LIS3MDL carrier)](https://www.pololu.com/product/2738)
  * [AltIMU-9 v5 (LSM6DS33, LIS3MDL, and LPS25H carrier)](https://www.pololu.com/product/2739)
-
-## Supported platforms
-
-This library is designed to work with the Arduino IDE versions 1.6.x or later; we have not tested it with earlier versions.  This library should support any Arduino-compatible board, including the [Pololu A-Star 32U4 controllers](https://www.pololu.com/category/149/a-star-programmable-controllers).
 
 ## Getting started
 
@@ -20,53 +17,40 @@ This library is designed to work with the Arduino IDE versions 1.6.x or later; w
 
 An LSM6 carrier can be purchased from Pololu's website.  Before continuing, careful reading of the product page as well as the chip datasheet and application note is recommended.
 
-Make the following connections between the Arduino and the LSM6 board:
+Make the following connections between the hardware and the LSM6 board:
 
-#### 5V Arduino boards
+#### 5V hardware
 
-(including Arduino Uno, Leonardo, Mega; Pololu A-Star 32U4)
+    Interface   LSM6 board
+    ---------   ----------
+           5V - VIN
+          GND - GND
+          SDA - SDA
+          SCL - SCL
 
-    Arduino   LSM6 board
-    -------   ----------
-         5V - VIN
-        GND - GND
-        SDA - SDA
-        SCL - SCL
+#### 3.3V hardware
 
-#### 3.3V Arduino boards
-
-(including Arduino Due)
-
-    Arduino   LSM6 board
-    -------   ----------
-        3V3 - VIN
-        GND - GND
-        SDA - SDA
-        SCL - SCL
+    Interface   LSM6 board
+    ---------   ----------
+          3V3 - VIN
+          GND - GND
+          SDA - SDA
+          SCL - SCL
 
 ### Software
 
-If you are using version 1.6.2 or later of the [Arduino software (IDE)](http://www.arduino.cc/en/Main/Software), you can use the Library Manager to install this library:
-
-1. In the Arduino IDE, open the "Sketch" menu, select "Include Library", then "Manage Libraries...".
-2. Search for "LSM6".
-3. Click the LSM6 entry in the list.
-4. Click "Install".
-
-If this does not work, you can manually install the library:
-
-1. Download the [latest release archive from GitHub](https://github.com/pololu/lsm6-arduino/releases) and decompress it.
+<!-- 1. Download the [latest release archive from GitHub](https://github.com/pololu/lsm6-arduino/releases) and decompress it.
 2. Rename the folder "lsm6-arduino-master" to "LSM6".
 3. Move the "LSM6" folder into the "libraries" directory inside your Arduino sketchbook directory.  You can view your sketchbook location by opening the "File" menu and selecting "Preferences" in the Arduino IDE.  If there is not already a "libraries" folder in that location, you should make the folder yourself.
-4. After installing the library, restart the Arduino IDE.
+4. After installing the library, restart the Arduino IDE. -->
 
 ## Examples
 
-An example sketch is available that shows how to use the library. You can access it from the Arduino IDE by opening the "File" menu, selecting "Examples", and then selecting "LSM6". If you cannot find the example, the library was probably installed incorrectly and you should retry the installation instructions above.
+An example sketch is available that shows how to use the library. Please find your I2C bus interface index. Tested only with Nvidia Jetson Xavier NX.
 
 ## Library reference
 
-* `vector<int16_t> a`<br>
+<!-- * `vector<int16_t> a`<br>
   The last values read from the accelerometer.
 
 * `vector<int16_t> g`<br>
@@ -111,10 +95,10 @@ An example sketch is available that shows how to use the library. You can access
   Takes a reading from the gyro and stores the values in the vector `g`. Conversion of the readings to units of dps (degrees per second) depends on the gyro's selected gain (full scale setting).
 
 * `void read()`<br>
-  Takes a reading from both the accelerometer and gyro and stores the values in the vectors `a` and `g`.
+  Takes a reading from both the accelerometer and gyro and stores the values in the vectors `a` and `g`. -->
 
 ## Version history
 
-* 2.0.1 (2022-10-14): Renamed PIN_CTRL to DSO_PIN_CTRL to work around a naming conflict with the ESP32. The original name can still be used on other platforms.
+<!-- * 2.0.1 (2022-10-14): Renamed PIN_CTRL to DSO_PIN_CTRL to work around a naming conflict with the ESP32. The original name can still be used on other platforms.
 * 2.0.0 (2022-09-02): Added support for LSM6DSO and support for alternative I&sup2;C buses. Removed timeout functionality that did not work as intended.
-* 1.0.0 (2016-01-19): Original release.
+* 1.0.0 (2016-01-19): Original release. -->

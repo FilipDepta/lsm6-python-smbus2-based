@@ -1,2 +1,21 @@
 /docs/
 /out/
+
+# Virtual envs
+venv*
+
+# Prerequisites
+*.d
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Executables
+build
+__pycache__
+
+# Nextcloud
+.sync*
+.owncloudsync.log
